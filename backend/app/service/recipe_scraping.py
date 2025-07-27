@@ -97,13 +97,13 @@ def scrapePublic(url: str, html: str, household: Household) -> dict[str, Any] | 
     for ingredient in parseIngredients(scraper.ingredients(), household.language):
         name = ingredient.name if ingredient.name else ingredient.originalText or ""
         item = Item.find_name_starts_with(household.id, name)
-        if item:
-            items[ingredient.originalText] = item.obj_to_dict() | {
-                "description": ingredient.description,
-                "optional": False,
-            }
-        else:
-            items[ingredient.originalText] = None
+        if not item:
+            # Auto-create new items if they don't exist
+            item = Item.create_by_name(household.id, name)
+        items[ingredient.originalText] = item.obj_to_dict() | {
+            "description": ingredient.description,
+            "optional": False,
+        }
     return {
         "recipe": recipe.obj_to_dict(),
         "items": items,
