@@ -96,6 +96,23 @@ def scrapePublic(url: str, html: str, household: Household) -> dict[str, Any] | 
     items = {}
     for ingredient in parseIngredients(scraper.ingredients(), household.language):
         name = ingredient.name if ingredient.name else ingredient.originalText or ""
+
+        if any(
+            word in name.lower()
+            for word in [
+                "wasser",
+                "pfeffer",
+                "salz",
+                "öl",
+                "essig",
+                "brüh",
+                "zucker",
+                "gewürzmischung",
+                "butter",
+            ]
+        ):
+            continue
+
         item = Item.find_name_starts_with(household.id, name)
         if not item:
             # Auto-create new items if they don't exist
