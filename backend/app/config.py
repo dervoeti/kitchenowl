@@ -38,7 +38,7 @@ def get_secret(env_var: str, default: str = None) -> str | None:
     file_path = os.getenv(f"{env_var}_FILE")
     if file_path:
         try:
-            with open(file_path, "r") as f:
+            with open(file_path, "r", encoding="utf-8") as f:
                 return f.read().strip()
         except Exception as e:
             raise RuntimeError(f"Failed to read {env_var}_FILE: {e}")
@@ -46,7 +46,7 @@ def get_secret(env_var: str, default: str = None) -> str | None:
 
 
 MIN_FRONTEND_VERSION = 71
-BACKEND_VERSION = 117
+BACKEND_VERSION = 120
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(APP_DIR)
@@ -86,6 +86,9 @@ JWT_REFRESH_TOKEN_EXPIRES = timedelta(
 OIDC_CLIENT_ID = os.getenv("OIDC_CLIENT_ID")
 OIDC_CLIENT_SECRET = get_secret("OIDC_CLIENT_SECRET")
 OIDC_ISSUER = os.getenv("OIDC_ISSUER")
+OIDC_RFC_COMPLIANT_REDIRECT = (
+    os.getenv("OIDC_RFC_COMPLIANT_REDIRECT", "True").lower() == "true"
+)
 
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = get_secret("GOOGLE_CLIENT_SECRET")
@@ -106,9 +109,11 @@ SUPPORTED_LANGUAGES = {
     "de_CH": "Deutsch (Schweiz)",
     "el": "Ελληνικά",
     "es": "Español",
+    "fa": "فارسی",
     "fi": "Suomi",
     "fr": "Français",
     "he": "עִבְרִית‎",
+    "hr": "Hrvatski",
     "hu": "Magyar nyelv",
     "id": "Bahasa Indonesia",
     "it": "Italiano",
@@ -126,6 +131,7 @@ SUPPORTED_LANGUAGES = {
     "sl": "Slovenščina",
     "sv": "Svenska",
     "ta": "தமிழ்",
+    "te": "తెలుగు",
     "tr": "Türkçe",
     "uk": "Українська",
     "zh_Hans": "简化字",

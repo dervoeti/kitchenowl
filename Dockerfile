@@ -54,32 +54,36 @@ RUN flutter build web --release --no-web-resources-cdn
 # ------------
 # BACKEND BUILDER
 # ------------
-FROM python:3.12-slim AS backend_builder
+FROM python:3.14-slim AS backend_builder
 
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
-        gcc g++ libffi-dev libpcre3-dev build-essential cargo \
+        gcc g++ libffi-dev libpcre2-dev libre2-dev build-essential cargo \
         libxml2-dev libxslt-dev cmake gfortran libopenblas-dev liblapack-dev pkg-config ninja-build \
-        autoconf automake zlib1g-dev libjpeg62-turbo-dev libssl-dev libsqlite3-dev libexpat1-dev
+        autoconf automake zlib1g-dev libjpeg62-turbo-dev libssl-dev libsqlite3-dev libexpat1-dev \
+        libicu-dev
 
 # Create virtual enviroment
 RUN pip install uv
 ENV UV_PROJECT_ENVIRONMENT="/opt/venv"
 ENV PATH="/opt/venv/bin:$PATH"
 
-COPY backend/pyproject.toml backend/uv.lock backend/.python-version ./
-RUN uv sync --no-dev && find /opt/venv \( -type d -a -name test -o -name tests \) -o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) -exec rm -rf '{}' \+
+COPY backend/pyproject.toml backend/uv.lock ./
+RUN uv python list --no-managed-python && uv sync --no-dev && find /opt/venv \( -type d -a -name test -o -name tests \) -o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) -exec rm -rf '{}' \+
 
 RUN python -c "import nltk; nltk.download('averaged_perceptron_tagger_eng', download_dir='/opt/venv/nltk_data')"
 
 # ------------
 # RUNNER
 # ------------
-FROM python:3.12-slim AS runner
+FROM python:3.14-slim AS runner
+
+LABEL org.opencontainers.image.source="https://github.com/TomBursch/kitchenowl"
 
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
-        libxml2 libpcre3 libexpat1 curl media-types \
+        libxml2 libpcre2-dev libre2-dev libexpat1 curl \
+        media-types libicu-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Use virtual enviroment

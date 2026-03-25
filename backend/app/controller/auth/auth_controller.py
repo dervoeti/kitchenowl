@@ -19,6 +19,7 @@ from app.config import (
     jwt,
     OPEN_REGISTRATION,
     DISABLE_USERNAME_PASSWORD_LOGIN,
+    OIDC_RFC_COMPLIANT_REDIRECT,
     oidc_clients,
 )
 
@@ -97,7 +98,7 @@ if not DISABLE_USERNAME_PASSWORD_LOGIN:
 
         if not user or not user.check_password(args["password"]):
             raise UnauthorizedRequest(
-                message="Unauthorized: IP {} login attemp with wrong username or password".format(
+                message="Unauthorized: IP {} login attempt with wrong username or password".format(
                     getClientIp()
                 )
             )
@@ -428,7 +429,7 @@ if FRONT_URL and len(oidc_clients) > 0:
         state = rndstr()
         nonce = rndstr()
         redirect_uri = (
-            "kitchenowl:"
+            ("kitchenowl:" + ("" if OIDC_RFC_COMPLIANT_REDIRECT else "//"))
             if "kitchenowl_scheme" in args and args["kitchenowl_scheme"]
             else FRONT_URL
         ) + "/signin/redirect"
@@ -494,7 +495,7 @@ if FRONT_URL and len(oidc_clients) > 0:
         oidc_request = OIDCRequest.find_by_state(args["state"])
         if not oidc_request:
             raise UnauthorizedRequest(
-                message="Unauthorized: IP {} login attemp with unknown OIDC state".format(
+                message="Unauthorized: IP {} login attempt with unknown OIDC state".format(
                     getClientIp()
                 )
             )
@@ -503,7 +504,7 @@ if FRONT_URL and len(oidc_clients) > 0:
         if not client:
             oidc_request.delete()
             raise UnauthorizedRequest(
-                message="Unauthorized: IP {} login attemp with unknown OIDC provider".format(
+                message="Unauthorized: IP {} login attempt with unknown OIDC provider".format(
                     getClientIp()
                 )
             )
@@ -513,7 +514,7 @@ if FRONT_URL and len(oidc_clients) > 0:
                 return "Request invalid: user not signed in for link request", 400
             oidc_request.delete()
             raise UnauthorizedRequest(
-                message="Unauthorized: IP {} login attemp for a different account".format(
+                message="Unauthorized: IP {} login attempt for a different account".format(
                     getClientIp()
                 )
             )
@@ -536,14 +537,14 @@ if FRONT_URL and len(oidc_clients) > 0:
         if isinstance(tokenResponse, ErrorResponse):
             oidc_request.delete()
             raise UnauthorizedRequest(
-                message="Unauthorized: IP {} login attemp for OIDC failed".format(
+                message="Unauthorized: IP {} login attempt for OIDC failed".format(
                     getClientIp()
                 )
             )
         userinfo = tokenResponse["id_token"]
         if userinfo["nonce"] != oidc_request.nonce:
             raise UnauthorizedRequest(
-                message="Unauthorized: IP {} login attemp for OIDC failed: mismatched nonce".format(
+                message="Unauthorized: IP {} login attempt for OIDC failed: mismatched nonce".format(
                     getClientIp()
                 )
             )
@@ -600,10 +601,14 @@ if FRONT_URL and len(oidc_clients) > 0:
                     if "email_verified" in userinfo
                     else False
                 ),
-                photo=file_has_access_or_download(userinfo["picture"])
-                if "picture" in userinfo
-                else None,
             ).save()
+            if "picture" in userinfo:
+                newUser.photo = file_has_access_or_download(
+                    userinfo["picture"],
+                    user=newUser,
+                )
+                newUser.save()
+
             oidcLink = OIDCLink(
                 sub=userinfo["sub"], provider=provider, user_id=newUser.id
             ).save()

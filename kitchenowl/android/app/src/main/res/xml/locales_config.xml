@@ -12,6 +12,7 @@
    <locale android:name="el"/>
    <locale android:name="en"/>
    <locale android:name="es"/>
+   <locale android:name="fa"/>
    <locale android:name="fi"/>
    <locale android:name="fr"/>
    <locale android:name="he"/>
@@ -37,8 +38,10 @@
    <locale android:name="sl"/>
    <locale android:name="sv"/>
    <locale android:name="ta"/>
+   <locale android:name="te"/>
    <locale android:name="tr"/>
    <locale android:name="uk"/>
    <locale android:name="vi"/>
    <locale android:name="zh"/>
+   <locale android:name="zh-Hant"/>
 </locale-config>

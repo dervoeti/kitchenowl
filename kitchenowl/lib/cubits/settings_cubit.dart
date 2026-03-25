@@ -18,6 +18,7 @@ class SettingsCubit extends Cubit<SettingsState> {
     final dynamicAccentColor =
         PreferenceStorage.getInstance().readBool(key: 'dynamicAccentColor');
     final gridSize = PreferenceStorage.getInstance().readInt(key: 'gridSize');
+    final listStyle = PreferenceStorage.getInstance().readInt(key: 'listStyle');
     final recentItemsCount =
         PreferenceStorage.getInstance().readInt(key: 'recentItemsCount');
     final accentColor =
@@ -30,6 +31,8 @@ class SettingsCubit extends Cubit<SettingsState> {
         PreferenceStorage.getInstance().readBool(key: 'recentItemsCategorize');
     final restoreLastShoppingList = PreferenceStorage.getInstance()
         .readBool(key: 'restoreLastShoppingList');
+    final shoppingListKeepAwake = PreferenceStorage.getInstance()
+        .readBool(key: 'shoppingListKeepAwake');
 
     Config.deviceInfo = DeviceInfoPlugin().deviceInfo;
     Config.packageInfo = PackageInfo.fromPlatform();
@@ -45,6 +48,9 @@ class SettingsCubit extends Cubit<SettingsState> {
       gridSize: (await gridSize) != null
           ? GridSize.values[(await gridSize)!]
           : GridSize.normal,
+      listStyle: (await listStyle) != null
+          ? ListStyle.values[(await listStyle)!]
+          : ListStyle.cards,
       recentItemsCount: await recentItemsCount ?? 9,
       accentColor:
           (await accentColor) != null ? Color((await accentColor)!) : null,
@@ -52,6 +58,7 @@ class SettingsCubit extends Cubit<SettingsState> {
       shoppingListTapToRemove: await shoppingListTapToRemove ?? true,
       recentItemsCategorize: await recentItemsCategorize ?? false,
       restoreLastShoppingList: await restoreLastShoppingList ?? false,
+      shoppingListKeepAwake: await shoppingListKeepAwake ?? false,
     ));
   }
 
@@ -71,6 +78,12 @@ class SettingsCubit extends Cubit<SettingsState> {
     PreferenceStorage.getInstance()
         .writeInt(key: 'gridSize', value: gridSize.index);
     emit(state.copyWith(gridSize: gridSize));
+  }
+
+  void setListStyle(ListStyle listStyle) {
+    PreferenceStorage.getInstance()
+        .writeInt(key: 'listStyle', value: listStyle.index);
+    emit(state.copyWith(listStyle: listStyle));
   }
 
   void setRecentItemsCount(int recentItemsCount) {
@@ -121,6 +134,14 @@ class SettingsCubit extends Cubit<SettingsState> {
     );
     emit(state.copyWith(restoreLastShoppingList: restoreLastShoppingList));
   }
+
+  void setShoppingListKeepAwake(bool shoppingListKeepAwake) {
+    PreferenceStorage.getInstance().writeBool(
+      key: 'shoppingListKeepAwake',
+      value: shoppingListKeepAwake,
+    );
+    emit(state.copyWith(shoppingListKeepAwake: shoppingListKeepAwake));
+  }
 }
 
 class SettingsState extends Equatable {
@@ -128,39 +149,46 @@ class SettingsState extends Equatable {
   final bool dynamicAccentColor;
   final int recentItemsCount;
   final GridSize gridSize;
+  final ListStyle listStyle;
   final Color? accentColor;
   final bool shoppingListListView;
   final bool shoppingListTapToRemove;
   final bool recentItemsCategorize;
   final bool restoreLastShoppingList;
+  final bool shoppingListKeepAwake;
 
   const SettingsState({
     this.themeMode = ThemeMode.system,
     this.dynamicAccentColor = false,
     this.gridSize = GridSize.normal,
+    this.listStyle = ListStyle.cards,
     this.recentItemsCount = 9,
     this.accentColor,
     this.shoppingListListView = false,
     this.shoppingListTapToRemove = true,
     this.recentItemsCategorize = false,
     this.restoreLastShoppingList = false,
+    this.shoppingListKeepAwake = false,
   });
 
   SettingsState copyWith({
     ThemeMode? themeMode,
     bool? dynamicAccentColor,
     GridSize? gridSize,
+    ListStyle? listStyle,
     int? recentItemsCount,
     Nullable<Color>? accentColor,
     bool? shoppingListListView,
     bool? shoppingListTapToRemove,
     bool? recentItemsCategorize,
     bool? restoreLastShoppingList,
+    bool? shoppingListKeepAwake,
   }) =>
       SettingsState(
         themeMode: themeMode ?? this.themeMode,
         dynamicAccentColor: dynamicAccentColor ?? this.dynamicAccentColor,
         gridSize: gridSize ?? this.gridSize,
+        listStyle: listStyle ?? this.listStyle,
         recentItemsCount: recentItemsCount ?? this.recentItemsCount,
         accentColor: (accentColor ?? Nullable(this.accentColor)).value,
         shoppingListListView: shoppingListListView ?? this.shoppingListListView,
@@ -170,6 +198,8 @@ class SettingsState extends Equatable {
             recentItemsCategorize ?? this.recentItemsCategorize,
         restoreLastShoppingList:
             restoreLastShoppingList ?? this.restoreLastShoppingList,
+        shoppingListKeepAwake:
+            shoppingListKeepAwake ?? this.shoppingListKeepAwake,
       );
 
   @override
@@ -177,11 +207,13 @@ class SettingsState extends Equatable {
         themeMode,
         dynamicAccentColor,
         gridSize,
+        listStyle,
         recentItemsCount,
         accentColor,
         shoppingListListView,
         shoppingListTapToRemove,
         recentItemsCategorize,
         restoreLastShoppingList,
+        shoppingListKeepAwake,
       ];
 }

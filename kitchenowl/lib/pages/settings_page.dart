@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dynamic_system_colors/dynamic_system_colors.dart';
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -256,6 +256,34 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ),
+                if (state.shoppingListListView)
+                  ListTile(
+                    title: Text(AppLocalizations.of(context)!.itemSize),
+                    leading: const Icon(Icons.line_style_rounded),
+                    titleAlignment: ListTileTitleAlignment.top,
+                    subtitle: Padding(
+                      padding: const EdgeInsets.only(top: 6),
+                      child: SegmentedButton(
+                        selected: {state.listStyle},
+                        segments: [
+                          ButtonSegment(
+                            value: ListStyle.cards,
+                            icon: const Icon(Icons.view_agenda_rounded),
+                            label: Text(AppLocalizations.of(context)!.cards),
+                          ),
+                          ButtonSegment(
+                            value: ListStyle.minimalist,
+                            icon: const Icon(Icons.density_small_rounded),
+                            label: Text(AppLocalizations.of(context)!.compact),
+                          ),
+                        ],
+                        onSelectionChanged: (Set<ListStyle> value) {
+                          BlocProvider.of<SettingsCubit>(context)
+                              .setListStyle(value.first);
+                        },
+                      ),
+                    ),
+                  ),
                 ListTile(
                   title:
                       Text(AppLocalizations.of(context)!.itemRemoveInteraction),
@@ -357,6 +385,25 @@ class _SettingsPageState extends State<SettingsPage> {
                               .setRecentItemsCategorize(value),
                     ),
                   ),
+                  if (!kIsWeb)
+                    ListTile(
+                      title: Text(
+                        AppLocalizations.of(context)!.shoppingListKeepAwake,
+                      ),
+                      leading: const Icon(Icons.visibility_rounded),
+                      onTap: () => BlocProvider.of<SettingsCubit>(context)
+                          .setShoppingListKeepAwake(
+                        !BlocProvider.of<SettingsCubit>(context)
+                            .state
+                            .shoppingListKeepAwake,
+                      ),
+                      trailing: KitchenOwlSwitch(
+                        value: state.shoppingListKeepAwake,
+                        onChanged: (value) =>
+                            BlocProvider.of<SettingsCubit>(context)
+                                .setShoppingListKeepAwake(value),
+                      ),
+                    ),
                   if (!kIsWeb)
                     ListTile(
                       title: Text(

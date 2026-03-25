@@ -1,17 +1,4 @@
 {
-  "@about": {},
-  "@accountCreate": {},
-  "@accountCreateHint": {},
-  "@accountCreateTitle": {},
-  "@accountDelete": {},
-  "@accountDeleteConfirmation": {},
-  "@accountLinkedWithOtherUser": {},
-  "@accountsLinked": {},
-  "@add": {},
-  "@addCategory": {},
-  "@addDescriptionFromSource": {},
-  "@addItemTitle": {},
-  "@addLanguage": {},
   "@addLanguageConfirm": {
     "placeholders": {
       "lang": {
@@ -36,9 +23,6 @@
       }
     }
   },
-  "@addRecipeToPlannerShort": {},
-  "@addShoppingList": {},
-  "@addTag": {},
   "@addedBy": {
     "placeholders": {
       "name": {
@@ -47,23 +31,9 @@
       }
     }
   },
-  "@address": {},
-  "@admin": {},
-  "@analysingWebsite": {},
-  "@appDescription": {},
   "@appTitle": {
     "description": "The title of the app"
   },
-  "@back": {},
-  "@balances": {},
-  "@budget": {},
-  "@budgetSet": {},
-  "@camera": {},
-  "@cancel": {},
-  "@categories": {},
-  "@categoriesMerge": {},
-  "@category": {},
-  "@categoryDelete": {},
   "@categoryDeleteConfirmation": {
     "placeholders": {
       "category": {
@@ -72,7 +42,6 @@
       }
     }
   },
-  "@categoryEdit": {},
   "@categoryExpenseDeleteConfirmation": {
     "placeholders": {
       "category": {
@@ -81,40 +50,6 @@
       }
     }
   },
-  "@changeIcon": {},
-  "@clear": {},
-  "@colorSelect": {},
-  "@confirm": {},
-  "@cookingTime": {},
-  "@copied": {},
-  "@daily": {},
-  "@dangerZone": {},
-  "@darkmode": {},
-  "@date": {},
-  "@defaultKey": {},
-  "@defaultWord": {},
-  "@delete": {},
-  "@description": {},
-  "@done": {},
-  "@dynamicAccentColor": {},
-  "@email": {},
-  "@emailInvalid": {},
-  "@emailNotVerified": {},
-  "@emailResendVerification": {},
-  "@emailSuccessfullyVerified": {},
-  "@emailUpdate": {},
-  "@emailUsed": {},
-  "@error": {},
-  "@excludeFromStatistics": {},
-  "@expense": {},
-  "@expenseAdd": {},
-  "@expenseAmount": {},
-  "@expenseCategories": {},
-  "@expenseEdit": {},
-  "@expenseEmpty": {},
-  "@expenseFactor": {},
-  "@expenseOverviewComparedToPreviousMonth": {},
-  "@expenseOverviewExpenses": {},
   "@expenseOverviewTotalTitle": {
     "placeholders": {
       "month": {
@@ -123,12 +58,6 @@
       }
     }
   },
-  "@expensePaidBy": {},
-  "@expensePaidFor": {},
-  "@expenseReceivedBy": {},
-  "@expenseReceivedFor": {},
-  "@export": {},
-  "@features": {},
   "@fieldCannotBeEmpty": {
     "placeholders": {
       "field": {
@@ -137,12 +66,6 @@
       }
     }
   },
-  "@forceOfflineMode": {},
-  "@gallery": {},
-  "@general": {},
-  "@go": {},
-  "@grid": {},
-  "@helpTranslate": {},
   "@hi": {
     "placeholders": {
       "name": {
@@ -151,8 +74,6 @@
       }
     }
   },
-  "@household": {},
-  "@householdDelete": {},
   "@householdDeleteConfirmation": {
     "placeholders": {
       "household": {
@@ -161,8 +82,6 @@
       }
     }
   },
-  "@householdEmpty": {},
-  "@householdLeave": {},
   "@householdLeaveConfirmation": {
     "placeholders": {
       "household": {
@@ -171,17 +90,6 @@
       }
     }
   },
-  "@householdNew": {},
-  "@householdSwitch": {},
-  "@households": {},
-  "@icon": {},
-  "@imageSelect": {},
-  "@import": {},
-  "@importStartedHint": {},
-  "@income": {},
-  "@ingredients": {},
-  "@ingredientsOptional": {},
-  "@itemDelete": {},
   "@itemDeleteConfirmation": {
     "placeholders": {
       "item": {
@@ -190,11 +98,6 @@
       }
     }
   },
-  "@itemRemoveInteraction": {},
-  "@itemSize": {},
-  "@items": {},
-  "@itemsAdd": {},
-  "@itemsMerge": {},
   "@itemsMergeConfirmation": {
     "placeholders": {
       "item": {
@@ -207,19 +110,12 @@
       }
     }
   },
-  "@itemsOptional": {},
-  "@itemsRecent": {},
-  "@language": {},
-  "@languageSelect": {},
-  "@larger": {},
-  "@lastUsed": {},
   "@link": {
     "description": "As in link social account (e.g. Google)"
   },
-  "@linkRecipeDescription": {},
-  "@list": {},
-  "@lltCreate": {},
-  "@lltDelete": {},
+  "@linkNoun": {
+    "description": "The noun, as in share using a link (URL)"
+  },
   "@lltDeleteConfirmation": {
     "placeholders": {
       "token": {
@@ -228,14 +124,6 @@
       }
     }
   },
-  "@lltNotShownAgain": {},
-  "@lltWarningContent": {},
-  "@lltWarningTitle": {},
-  "@llts": {},
-  "@login": {},
-  "@loginTo": {},
-  "@loginToAddToShoppingList": {},
-  "@logout": {},
   "@logoutName": {
     "placeholders": {
       "name": {
@@ -244,27 +132,6 @@
       }
     }
   },
-  "@longPressToReorder": {},
-  "@longerThanExpected": {},
-  "@markAsPaid": {},
-  "@mealPlanner": {},
-  "@member": {},
-  "@memberAdd": {},
-  "@memberRemove": {},
-  "@members": {},
-  "@merge": {},
-  "@minutesAbbrev": {},
-  "@moneyTransfer": {},
-  "@monthly": {},
-  "@more": {},
-  "@name": {},
-  "@next": {},
-  "@noTags": {},
-  "@none": {},
-  "@now": {},
-  "@offlineMessage": {},
-  "@okay": {},
-  "@onboardingLoading": {},
   "@onboardingSettingsTitle": {
     "placeholders": {
       "name": {
@@ -273,12 +140,6 @@
       }
     }
   },
-  "@onboardingTitle": {},
-  "@optional": {},
-  "@or": {},
-  "@ordering": {},
-  "@other": {},
-  "@overview": {},
   "@owesAB": {
     "placeholders": {
       "nameA": {
@@ -291,20 +152,6 @@
       }
     }
   },
-  "@pageNotFound": {},
-  "@password": {},
-  "@passwordFieldTooShort": {},
-  "@passwordForgot": {},
-  "@passwordRepeat": {},
-  "@passwordRepeatNoMatch": {},
-  "@passwordReset": {},
-  "@passwordSave": {},
-  "@personal": {},
-  "@planner": {},
-  "@plannerEmpty": {},
-  "@plannerTitle": {},
-  "@preparationTime": {},
-  "@privacyPolicy": {},
   "@privacyPolicyAgree": {
     "placeholders": {
       "privacyPolicy": {
@@ -313,14 +160,6 @@
       }
     }
   },
-  "@private": {},
-  "@privateRecipeDescription": {},
-  "@profile": {},
-  "@public": {},
-  "@publicRecipeDescription": {},
-  "@reason": {},
-  "@recentItemsCategorize": {},
-  "@recipeAdd": {},
   "@recipeAddToHousehold": {
     "placeholders": {
       "householdName": {
@@ -329,8 +168,6 @@
       }
     }
   },
-  "@recipeAddUrl": {},
-  "@recipeDelete": {},
   "@recipeDeleteConfirmation": {
     "placeholders": {
       "recipe": {
@@ -339,40 +176,14 @@
       }
     }
   },
-  "@recipeEdit": {},
-  "@recipeEmpty": {},
-  "@recipeEmptySearch": {},
-  "@recipeImageSelect": {},
-  "@recipeNew": {},
-  "@recipeSource": {},
-  "@recipes": {},
-  "@recipesDiscover": {},
-  "@recipesNewestCommunity": {},
-  "@recipesOverwrite": {},
-  "@recipesOverwriteDescription": {},
-  "@recipesRecent": {},
-  "@recipesSuggested": {},
-  "@redo": {},
-  "@refresh": {},
-  "@rememberLastShoppingList": {},
-  "@remove": {},
-  "@rename": {},
-  "@reportIssue": {},
-  "@reportRecipe": {},
-  "@reportUser": {},
-  "@reset": {},
-  "@save": {},
-  "@search": {},
-  "@searchHint": {},
-  "@send": {},
-  "@server": {},
-  "@serverChange": {},
-  "@sessions": {},
-  "@set": {},
-  "@settings": {},
-  "@setupTitle": {},
-  "@share": {},
-  "@shoppingList": {},
+  "@recipeGoToInHousehold": {
+    "placeholders": {
+      "householdName": {
+        "example": "Home",
+        "type": "String"
+      }
+    }
+  },
   "@shoppingListContainsEntries": {
     "placeholders": {
       "entriesCount": {
@@ -380,7 +191,6 @@
       }
     }
   },
-  "@shoppingListDelete": {},
   "@shoppingListDeleteConfirmation": {
     "placeholders": {
       "shoppingList": {
@@ -389,10 +199,6 @@
       }
     }
   },
-  "@shoppingListEdit": {},
-  "@shoppingListEmpty": {},
-  "@shoppingListStyle": {},
-  "@shoppingLists": {},
   "@signInWith": {
     "placeholders": {
       "provider": {
@@ -401,17 +207,6 @@
       }
     }
   },
-  "@signup": {},
-  "@skip": {},
-  "@smaller": {},
-  "@sortingAlgorithmic": {},
-  "@sortingAlphabetical": {},
-  "@start": {},
-  "@supportDevelopment": {},
-  "@swipeToDelete": {},
-  "@swipeToDeleteAndLongPressToReorder": {},
-  "@swipeToRemove": {},
-  "@tagDelete": {},
   "@tagDeleteConfirmation": {
     "placeholders": {
       "tag": {
@@ -420,20 +215,6 @@
       }
     }
   },
-  "@tagEdit": {},
-  "@tags": {},
-  "@tap": {},
-  "@themeDark": {},
-  "@themeLight": {},
-  "@themeMode": {},
-  "@themeSystem": {},
-  "@today": {},
-  "@tomorrow": {},
-  "@total": {},
-  "@totalTime": {},
-  "@tutorialItemDescription1": {},
-  "@tutorialItemDescription2": {},
-  "@tutorialRecipeDescription": {},
   "@tutorialRecipeMore": {
     "placeholders": {
       "url": {
@@ -442,22 +223,9 @@
       }
     }
   },
-  "@uncategorized": {},
-  "@underConstruction": {},
-  "@undo": {},
   "@unlink": {
     "description": "As in remove link to social account (e.g. Google)"
   },
-  "@unreachableMessage": {},
-  "@unsavedChangesBody": {},
-  "@unsavedChangesTitle": {},
-  "@unsupportedBackendMessage": {},
-  "@unsupportedFrontendMessage": {},
-  "@unsupportedScrapeMessage": {},
-  "@usedIn": {},
-  "@user": {},
-  "@userAdd": {},
-  "@userDelete": {},
   "@userDeleteConfirmation": {
     "placeholders": {
       "user": {
@@ -466,22 +234,7 @@
       }
     }
   },
-  "@userNotSignedIn": {},
-  "@userSearchHint": {},
-  "@username": {},
-  "@usernameInvalid": {},
-  "@usernameUnavailable": {},
-  "@users": {},
-  "@weekly": {},
-  "@welcomeBack": {},
-  "@writeMarkdownHere": {},
-  "@wrongUsernameOrPassword": {},
-  "@yearly": {},
-  "@yes": {},
-  "@yesterday": {},
-  "@yields": {},
-  "@you": {},
-  "about": "O",
+  "about": "O aplikacji",
   "accountCreate": "Stwórz konto",
   "accountCreateHint": "Twoja nazwa użytkownika i imię są publiczne, więc wybierz coś, czym chcesz się dzielić z innymi.",
   "accountCreateTitle": "Stwórz swoje konto KitchenOwl",
@@ -496,7 +249,7 @@
   "addLanguage": "Dodaj język",
   "addLanguageConfirm": "Czy jesteś pewien, że chcesz ustawić język na '{lang}'? Jest to nieodwracalne i doda nowe artykuły i kategorie.",
   "addNumberIngredients": "Dodaj {number} składników",
-  "addRecipeToPlanner": "Dodaj do planu posiłków ({number} porcji)",
+  "addRecipeToPlanner": "Dodaj do jadłospisu ({number} porcji)",
   "addRecipeToPlannerShort": "Dodaj do jadłospisu",
   "addShoppingList": "Dodaj listę zakupów",
   "addTag": "Dodaj tagi",
@@ -506,6 +259,7 @@
   "analysingWebsite": "Analizowanie strony...",
   "appDescription": "KitchenOwl pomoże Ci z organizacją zakupów spożywczych.",
   "appTitle": "KitchenOwl",
+  "automaticIngredientDetection": "Automatycznie wykryj składniki",
   "back": "Powrót",
   "balances": "Saldo",
   "budget": "Budżet",
@@ -522,17 +276,19 @@
   "changeIcon": "Zmień ikonę",
   "clear": "Wyczyść",
   "colorSelect": "Wybierz kolor",
+  "compact": "Tryb zwarty",
   "confirm": "Potwierdź",
   "cookingTime": "Czas gotowania",
   "copied": "Skopiowano",
   "daily": "Dzienne",
-  "dangerZone": "Strefa Zagrożenia",
+  "dangerZone": "Strefa zagrożenia",
   "darkmode": "Tryb ciemny",
   "date": "Data",
   "defaultKey": "Domyślny klucz",
   "defaultWord": "Domyślny",
   "delete": "Usuń",
   "description": "Opis",
+  "discover": "Odkryj",
   "done": "Gotowe",
   "dynamicAccentColor": "Dynamiczny kolor akcentu",
   "email": "E-mail",
@@ -598,7 +354,8 @@
   "languageSelect": "Wybierz język",
   "larger": "Większy",
   "lastUsed": "Ostatnio używane",
-  "link": "Odnośnik",
+  "link": "Połącz",
+  "linkNoun": "Link",
   "linkRecipeDescription": "Każdy kto posiada link do tego przepisu może go zobaczyć.",
   "list": "Lista",
   "lltCreate": "Utwórz długożyjący token",
@@ -643,6 +400,8 @@
   "overview": "Przegląd",
   "owesAB": "{nameA} jest winien {nameB}",
   "pageNotFound": "Nie znaleziono strony",
+  "parent": "Rodzic",
+  "parentRights": "Może zmieniać ustawienia domostwa",
   "password": "Hasło",
   "passwordFieldTooShort": "Hasło za krótkie",
   "passwordForgot": "Zapomniałeś hasła?",
@@ -651,12 +410,12 @@
   "passwordReset": "Resetuj hasło",
   "passwordSave": "Zaktualizuj hasło",
   "personal": "Osobiste",
-  "planner": "Planer",
+  "planner": "Jadłospis",
   "plannerEmpty": "Brak zaplanowanych posiłków, aby rozpocząć, wybierz jeden z przepisów!",
   "plannerTitle": "Zaplanowane posiłki",
   "preparationTime": "Czas przygotowania",
   "privacyPolicy": "Polityka Prywatności",
-  "privacyPolicyAgree": "Przez założenie konta zgadzasz się z naszą {privacyPolicy}",
+  "privacyPolicyAgree": "Przez założenie konta zgadzasz się z naszą {privacyPolicy} oraz {terms}",
   "private": "Prywatne",
   "privateRecipeDescription": "Tylko członkowie domostwa mogą zobaczyć przepis.",
   "profile": "Profil",
@@ -672,16 +431,19 @@
   "recipeEdit": "Edytuj przepis",
   "recipeEmpty": "Brak przepisów, utwórz nowy!",
   "recipeEmptySearch": "Nie znaleziono przepisów :(",
+  "recipeGoToInHousehold": "Już dodano, przejdź do przepisu w {householdName}",
   "recipeImageSelect": "Wybierz obrazek przepisu",
   "recipeNew": "Nowy przepis",
   "recipeSource": "Źródło przepisu",
   "recipes": "Przepisy",
+  "recipesCurated": "Wyselekcjonowane przepisy",
   "recipesDiscover": "Odkryj przepisy",
   "recipesNewestCommunity": "Najnowsze przepisy społeczności",
   "recipesOverwrite": "Nadpisz przepisy",
   "recipesOverwriteDescription": "Jeżeli zaznaczone, istniejące przepisy z tymi samymi nazwami zostaną nadpisane",
+  "recipesPopular": "Popularne przepisy",
   "recipesRecent": "Ostatnie",
-  "recipesSuggested": "Sugerowane",
+  "recipesSuggested": "Polecane",
   "redo": "Ponów",
   "refresh": "Odśwież",
   "rememberLastShoppingList": "Pamiętaj ostatnio użytą listę zakupów",
@@ -725,7 +487,9 @@
   "tagDeleteConfirmation": "Czy jesteś pewien, że chcesz usunąć {tag}? To działanie usunie taga ze wszystkich przepisów.",
   "tagEdit": "Edytuj tag",
   "tags": "Tagi",
+  "tagsPopular": "Popularne tagi",
   "tap": "Kliknij",
+  "terms": "Regulamin",
   "themeDark": "Ciemny",
   "themeLight": "Jasny",
   "themeMode": "Tryb",
@@ -759,6 +523,7 @@
   "usernameInvalid": "Nazwa użytkownika nie może zawierać '@'",
   "usernameUnavailable": "Nazwa użytkownika jest niedostępna",
   "users": "Użytkownicy",
+  "website": "Strona internetowa",
   "weekly": "Tygodniowy",
   "welcomeBack": "Witaj ponownie",
   "writeMarkdownHere": "Możesz tu używać markdown!",
