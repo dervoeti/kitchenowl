@@ -33,7 +33,7 @@ class AuthCubit extends Cubit<AuthState> {
     String? url;
     url = kIsWeb
         ? kDebugMode
-            ? "http://localhost:5000"
+            ? "http://localhost:5001"
             : html.getBaseUri()
         : await PreferenceStorage.getInstance().read(key: 'URL') ??
             Config.defaultServer;

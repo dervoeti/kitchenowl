@@ -33,4 +33,4 @@ if __name__ == "__main__":
     arguments = parse_arguments()
     if not os.path.exists(UPLOAD_FOLDER):
         os.makedirs(UPLOAD_FOLDER)
-    socketio.run(app, debug=arguments.debug, host=arguments.host)
+    socketio.run(app, debug=arguments.debug, host=arguments.host, port=5001)
