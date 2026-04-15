@@ -15,7 +15,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.7.6+120
+version: 0.7.7+121
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -51,7 +51,7 @@ dependencies:
   responsive_builder: ^0.7.0
 
   # TODO: Remove this once https://github.com/material-foundation/flutter-packages/pull/599 is merged
-  dynamic_color: ^1.8.1
+  dynamic_system_colors: ^1.9.0
   flutter_localized_locales: ^2.0.5
 
   flutter_markdown_plus: ^1.0.7
