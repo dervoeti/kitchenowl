@@ -41,6 +41,12 @@ class AuthCubit extends Cubit<AuthState> {
     _newConnection(url, token: token, storeData: false);
   }
 
+  @override
+  Future<void> close() {
+    ApiService.getInstance().removeListener(updateState);
+    return super.close();
+  }
+
   Future<void> updateState() async {
     switch (ApiService.getInstance().connectionStatus) {
       case Connection.authenticated:
@@ -226,10 +232,11 @@ class AuthCubit extends Cubit<AuthState> {
     String state,
     String code, [
     Function(String?)? feedbackCallback,
+    String? name,
   ]) async {
     emit(const Loading());
     (String?, String?) res =
-        await ApiService.getInstance().loginOIDC(state, code);
+        await ApiService.getInstance().loginOIDC(state, code, name: name);
     final token = res.$1;
     if (token != null && ApiService.getInstance().isAuthenticated()) {
       await SecureStorage.getInstance().write(key: 'TOKEN', value: token);
